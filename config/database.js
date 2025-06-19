@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
+import pg from 'pg';
 
 dotenv.config();
 
@@ -14,8 +15,9 @@ dotenv.config();
 
 const db = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
+  dialectModule: pg, 
   protocol: 'postgres',
-  logging: false, // opsional, kalau gak mau lihat log query
+  logging: false,
 });
 
 
